@@ -11,17 +11,16 @@
 <body>
     <canvas id="canvas"></canvas>
     <script>
-        //初始化画板
         let canvas = document.getElementById("canvas");
         //canvas.width设置的位html属性，所以不需要单位；
         //canvas.style.width设置的为css属性；
         canvas.width = document.documentElement.clientWidth;
         canvas.height = document.documentElement.clientHeight;
 
-        let painting = false;//开关
+        let painting = false;
 
         var ctx = canvas.getContext('2d');
-        //画线方法
+        
         function drawLine(x, y, x1, y1) {
             ctx.lineWidth = 5;
             ctx.lineCap = 'round';
@@ -30,8 +29,9 @@
             ctx.lineTo(x1, y1);
             ctx.stroke();
         }
-        //记录上一次的笔点坐标
+        
         let lastX, lastY;
+        
         if ('ontouchstart' in window) {
             //手机触屏
             canvas.ontouchstart = (e) => {
